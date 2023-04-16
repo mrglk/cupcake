@@ -1,0 +1,13 @@
+.cell {
+    text-align: center;
+    height: 45px;
+    padding: 0 5px;
+    border: 2px solid rgb(170, 169, 169);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.cell--highlight {
+    background-color: #0093fb;
+    color: rgb(255, 255, 255);
+}
