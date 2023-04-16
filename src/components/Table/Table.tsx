@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Table.css";
 import { TableRow } from "../TableRow/TableRow";
-import useThrottledApi from "../../hooks/useThrottledApi";
+import useLongpoll from "../../hooks/useLongpoll";
 
 type Data = {
   [key: string]: number
@@ -42,13 +42,13 @@ const getMinValue = (data: ArrayData) => {
 };
 
 export function Table() {
-  const firstData = useThrottledApi(FIRST_ENDPOINTS);
-  const secondData  = useThrottledApi(SECOND_ENDPOINTS);
-  const thirdData = useThrottledApi(THIRD_ENDPOINTS);
+  const firstData = useLongpoll(FIRST_ENDPOINTS);
+  const secondData  = useLongpoll(SECOND_ENDPOINTS);
+  const thirdData = useLongpoll(THIRD_ENDPOINTS);
 
   if (!firstData || !secondData || !thirdData) {
     return (
-      <p>Соединение</p>
+      <p>Соединение...</p>
     )
   }
 
