@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./TableCell.css";
 
 type CellProps =  {
@@ -5,6 +6,6 @@ type CellProps =  {
     min?: number;
   };
 
-export function TableCell({ data, min }: CellProps) {
+export const TableCell = memo(({ data, min }: CellProps) => {
   return <td className={!min || (min !== Number(data))? "cell" : "cell cell--highlight"}>{data}</td>;
-}
+})
